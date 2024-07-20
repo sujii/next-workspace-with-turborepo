@@ -1,4 +1,4 @@
-# next-workspaces-template
+# next-workspace-with-turborepo
 Mock template for Next-Workspace [Turborepo](https://github.com/vercel/turbo)
 
 ## Directives
@@ -9,9 +9,14 @@ Mock template for Next-Workspace [Turborepo](https://github.com/vercel/turbo)
 ├── package.json
 ├── packages
 │   ├── api-client
+│   ├── api-server
 │   ├── app
 │   ├── docs
+│   ├── e2e
 │   ├── eslint-config
+│   ├── storybook
+│   ├── swagger-ui
+│   ├── tests
 │   ├── typescript-config
 │   └── ui
 ├── pnpm-lock.yaml
