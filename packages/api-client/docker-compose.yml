@@ -1,0 +1,31 @@
+version: "3"
+services:
+  openapi-generator-cli:
+    image: openapitools/openapi-generator-cli:v4.3.1
+    command:
+      [
+        "generate",
+        "-i",
+        "/tmp/src/api/openapi-spec/OpenAPI.yaml",
+        "-o",
+        "/tmp/dist",
+        "-g",
+        "typescript-fetch",
+        "--model-name-prefix=templateApi",
+        "--additional-properties=typescriptThreePlus=true"
+      ]
+    volumes:
+      - ./submodules/template-api:/tmp/src
+      - ./src:/tmp/dist
+  sed-date-array:
+    image: debian:stable-slim
+    command: ["/tmp/sed-date-array.sh", "/tmp/src", ]
+    volumes:
+      - ./scripts/sed-date-array.sh:/tmp/sed-date-array.sh
+      - ./src:/tmp/src
+  sed-delete-develop-api:
+    image: debian:stable-slim
+    command: ["/tmp/sed-delete-develop-api.sh", "/tmp/src/apis/index.ts"]
+    volumes:
+      - ./scripts/sed-delete-develop-api.sh:/tmp/sed-delete-develop-api.sh
+      - ./src:/tmp/src

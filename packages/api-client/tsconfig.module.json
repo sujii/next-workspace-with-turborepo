@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "outDir": "./module",
+    "module": "esnext",
+    "noUnusedLocals": false,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
